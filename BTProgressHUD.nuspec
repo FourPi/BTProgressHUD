@@ -6,7 +6,7 @@
         <authors>nicwise</authors>
         <owners>nicwise,ravensorb,redth</owners>
         <projectUrl>https://github.com/FourPi/BTProgressHUD</projectUrl>
-        <repository type="git" url="https://github.com/FourPi/BTProgressHUD.git" commit="a29e89036e61cfcb68fbbd2186681c6dca828f15" />
+        <repository type="git" url="https://github.com/FourPi/BTProgressHUD.git" commit="b372bcb5231a887bf7666d135fd78abb6c4abd7b" />
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>SVProgressHUD (and BTProgressHUD) is a clean and easy-to-use HUD meant to display the progress of an ongoing task.
         
