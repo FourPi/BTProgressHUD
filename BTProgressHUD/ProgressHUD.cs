@@ -15,32 +15,11 @@
 //  Version 1.6.1
 using System;
 using System.Collections.Generic;
-
-#if __UNIFIED__
 using UIKit;
 using Foundation;
 using CoreAnimation;
 using CoreGraphics;
 using ObjCRuntime;
-
-
-
-
-
-
-#else
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
-using MonoTouch.CoreAnimation;
-using MonoTouch.CoreGraphics;
-using MonoTouch.ObjCRuntime;
-
-using nfloat = System.Single;
-using System.Drawing;
-using CGRect = global::System.Drawing.RectangleF;
-using CGPoint = global::System.Drawing.PointF;
-using CGSize = global::System.Drawing.SizeF;
-#endif
 
 namespace BigTed
 {
@@ -403,11 +382,7 @@ namespace BigTed
 
 		void StartDismissTimer (TimeSpan duration)
 		{
-			#if __UNIFIED__
 			_fadeoutTimer = NSTimer.CreateTimer (duration, timer => DismissWorker ());
-			#else
-			_fadeoutTimer = NSTimer.CreateTimer(duration, DismissWorker);
-			#endif
 			NSRunLoop.Main.AddTimer (_fadeoutTimer, NSRunLoopMode.Common);
 		}
 
@@ -415,11 +390,7 @@ namespace BigTed
 		{
 
 			if (_progressTimer == null) {
-				#if __UNIFIED__
 				_progressTimer = NSTimer.CreateRepeatingTimer (duration, timer => UpdateProgress ());
-				#else
-				_progressTimer = NSTimer.CreateRepeatingTimer(duration, UpdateProgress);
-				#endif
 				NSRunLoop.Current.AddTimer (_progressTimer, NSRunLoopMode.Common);
 			}
 		}

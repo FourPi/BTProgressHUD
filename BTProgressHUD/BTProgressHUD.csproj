@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="success%402x.png">
-      <DependentUpon>BTProgressHUD.cs</DependentUpon>
     </BundleResource>
     <BundleResource Include="error.png" />
     <BundleResource Include="error%402x.png" />
@@ -61,9 +60,5 @@
     <BundleResource Include="error_7%402x.png" />
     <BundleResource Include="success_7.png" />
     <BundleResource Include="success_7%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="xamarin%402x.png" />
-    <BundleResource Include="xamarin.png" />
   </ItemGroup>
 </Project>
