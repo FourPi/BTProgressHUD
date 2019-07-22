@@ -1,64 +1,84 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.29">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8ECDFDC5-42D0-4540-9691-830EEB2ED874}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>BTProgressHUD</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20-->
+    <TargetFramework>Xamarin.iOS10</TargetFramework>
+    
+    
+    <!--To Multi-target you can do this-->
+    <!--<TargetFrameworks>Xamarin.iOS10;MonoAndroid80</TargetFrameworks>-->
+    
+    <!--Assembly and Namespace info -->
     <AssemblyName>BTProgressHUD</AssemblyName>
-    <ReleaseVersion>1.7</ReleaseVersion>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <RootNamespace>BigTed</RootNamespace>
+    
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <AssemblyVersion>1.8</AssemblyVersion>
+    <AssemblyFileVersion>1.8</AssemblyFileVersion>
+    <Version>1.8</Version>
+    <NeutralLanguage>en</NeutralLanguage>
+ 
+    
+    <!--Don't auto add files for me, I will tell you -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+   
+    <!-- Helper to add defines-->
+    <DefineConstants>$(DefineConstants);</DefineConstants>    
+    
+    <!--Assembly and Namespace info -->
+    
+    <!--Version of C# to use -->
+    <LangVersion>default</LangVersion>
+    
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
+  
+  <!-- Define what happens on build and release -->
+   <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
     <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
-    <OutputPath>bin\unified\Debug</OutputPath>
-    <DefineConstants>DEBUG;__UNIFIED__</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <IntermediateOutputPath>obj\unified\$(Configuration)\</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>True</Optimize>
-    <OutputPath>bin\unified\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>False</ConsolePause>
-    <IntermediateOutputPath>obj\unified\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>__UNIFIED__</DefineConstants>
+  
+  <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+    <DebugType>pdbonly</DebugType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    
+    <!-- If we want a nuget package add this
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+     -->
   </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
+    <Compile Include="**\*.cs" />
+  </ItemGroup>
+  
+
+  <ItemGroup>
+    <None Remove="error.png" />
+    <None Remove="error%402x.png" />
+    <None Remove="error%403x.png" />
+    <None Remove="error_7.png" />
+    <None Remove="error_7%402x.png" />
+    <None Remove="error_7%403x.png" />
+    <None Remove="success.png" />
+    <None Remove="success%402x.png" />
+    <None Remove="success%403x.png" />
+    <None Remove="success_7.png" />
+    <None Remove="success_7%402x.png" />
+    <None Remove="success_7%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <Compile Include="BTProgressHUD.cs" />
-    <Compile Include="NSObjectExtensions.cs" />
-    <Compile Include="ProgressHUD.cs" />
-    <Compile Include="Ring.cs" />
-    <Compile Include="XHUD.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="success%402x.png">
-    </BundleResource>
     <BundleResource Include="error.png" />
     <BundleResource Include="error%402x.png" />
-    <BundleResource Include="success.png" />
+    <BundleResource Include="error%403x.png" />
     <BundleResource Include="error_7.png" />
     <BundleResource Include="error_7%402x.png" />
+    <BundleResource Include="error_7%403x.png" />
+    <BundleResource Include="success.png" />
+    <BundleResource Include="success%402x.png" />
+    <BundleResource Include="success%403x.png" />
     <BundleResource Include="success_7.png" />
     <BundleResource Include="success_7%402x.png" />
+    <BundleResource Include="success_7%403x.png" />
   </ItemGroup>
 </Project>
