@@ -110,3 +110,5 @@ UpgradeLog*.XML
 
 
 .DS_Store
+.mfractor/
+.vs/
