@@ -2,18 +2,25 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>BTProgressHUD-updated</id>
-        <version>1.8</version>
+        <version>1.8.1</version>
         <authors>nicwise</authors>
         <owners>nicwise,ravensorb,redth</owners>
         <projectUrl>https://github.com/FourPi/BTProgressHUD</projectUrl>
+        <repository type="git" url="https://github.com/FourPi/BTProgressHUD.git" commit="a29e89036e61cfcb68fbbd2186681c6dca828f15" />
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>SVProgressHUD (and BTProgressHUD) is a clean and easy-to-use HUD meant to display the progress of an ongoing task.\n\nUpdated with pull requests from official repository and a few other tweaks (.NET Standard, updates visual assets, etc)</description>
-        <summary>Port to MonoTouch of the SVProgressHUD.</summary>
-        <tags>Xamarin, MonoTouch, Progress</tags>
+        <description>SVProgressHUD (and BTProgressHUD) is a clean and easy-to-use HUD meant to display the progress of an ongoing task.
+        
+Updated with pull requests from official repository and a few other tweaks (updates visual assets, etc)</description>
+        <summary>Port to Xamarin.iOS of the SVProgressHUD.</summary>
+        <tags>Xamarin, Xamarin.iOS, Progress</tags>
+        <license type="file">LICENSE.txt</license>
     </metadata>
     <files>
-        <file src="BTProgressHUD\bin\Release\xamarin.ios10\BTProgressHUD.dll" target="lib\Xamarin.iOS10\BTProgressHUD.dll" />
-
+    
+        <file src="BTProgressHUD\bin\Release\xamarin.ios10\*.dll" target="lib\Xamarin.iOS10" />
+        <file src="BTProgressHUD\bin\Release\xamarin.ios10\*.pdb" target="lib\Xamarin.iOS10" />
+        <file src="**\*.cs" target="src" />
         <file src="NOTICE" target="THIRD-PARTY-NOTICES.txt" />
+        <file src="LICENSE.txt" target="" />
     </files>
 </package>

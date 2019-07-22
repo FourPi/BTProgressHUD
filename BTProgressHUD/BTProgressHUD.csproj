@@ -1,5 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.29">
-
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.31">
   <PropertyGroup>
     <!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20-->
     <TargetFramework>Xamarin.iOS10</TargetFramework>
@@ -13,11 +12,21 @@
     <RootNamespace>BigTed</RootNamespace>
     
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <AssemblyVersion>1.8</AssemblyVersion>
-    <AssemblyFileVersion>1.8</AssemblyFileVersion>
-    <Version>1.8</Version>
+    <Version>1.8.1</Version>
     <NeutralLanguage>en</NeutralLanguage>
- 
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <RepositoryUrl>https://github.com/FourPi/BTProgressHUD.git</RepositoryUrl> 
+    <RepositoryType>git</RepositoryType> 
+
+    <NuspecFile>..\BTProgressHUD.nuspec</NuspecFile>
+
+    <!--<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+ -->
     
     <!--Don't auto add files for me, I will tell you -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -41,44 +50,23 @@
   
   <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
     <DebugType>pdbonly</DebugType>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    
-    <!-- If we want a nuget package add this
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-     -->
   </PropertyGroup>
   
   <ItemGroup>
     <Compile Include="**\*.cs" />
   </ItemGroup>
-  
 
   <ItemGroup>
-    <None Remove="error.png" />
-    <None Remove="error%402x.png" />
-    <None Remove="error%403x.png" />
-    <None Remove="error_7.png" />
-    <None Remove="error_7%402x.png" />
-    <None Remove="error_7%403x.png" />
-    <None Remove="success.png" />
-    <None Remove="success%402x.png" />
-    <None Remove="success%403x.png" />
-    <None Remove="success_7.png" />
-    <None Remove="success_7%402x.png" />
-    <None Remove="success_7%403x.png" />
+    <BundleResource Include="**\*.png" />
   </ItemGroup>
+
   <ItemGroup>
-    <BundleResource Include="error.png" />
-    <BundleResource Include="error%402x.png" />
-    <BundleResource Include="error%403x.png" />
-    <BundleResource Include="error_7.png" />
-    <BundleResource Include="error_7%402x.png" />
-    <BundleResource Include="error_7%403x.png" />
-    <BundleResource Include="success.png" />
-    <BundleResource Include="success%402x.png" />
-    <BundleResource Include="success%403x.png" />
-    <BundleResource Include="success_7.png" />
-    <BundleResource Include="success_7%402x.png" />
-    <BundleResource Include="success_7%403x.png" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
+
 </Project>
